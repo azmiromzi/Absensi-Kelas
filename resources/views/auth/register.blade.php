@@ -1,6 +1,8 @@
 <x-guest-layout>
     <x-auth-card>
+        <a href="/" class="btn btn-primary " style="position: absolute; top: 20px; left: 20px">back to start</a>
         <x-slot name="logo">
+
             <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
