@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class RegisteredUserController extends Controller
 {
@@ -37,12 +38,16 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'absen' => ['string'],
+            // 'kelas_id' => ['integer']
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'absen' => $request->absen,
             'password' => Hash::make($request->password),
+            // 'kelas_id' => $request->kelas_id
         ]);
 
         event(new Registered($user));
