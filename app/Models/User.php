@@ -46,4 +46,8 @@ class User extends Authenticatable
     {
         $this->hasMany(Absen::class);
     }
+    public function kelas()
+    {
+        $this->belongsTo(Kelas::class);
+    }
 }
